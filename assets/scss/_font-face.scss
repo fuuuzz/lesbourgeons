@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Boldonse";
+  src:
+    url("/fonts/Boldonse-Regular.woff2") format("woff2"),
+    url("/fonts/Boldonse-Regular.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src:
+    url("/fonts/Quicksand-Medium.woff2") format("woff2"),
+    url("/fonts/Quicksand-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

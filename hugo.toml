@@ -1,0 +1,5 @@
+baseURL = 'https://lesbourgeons.org/'
+languageCode = 'fr-fr'
+title = 'Les bourgeons'
+[taxonomies]
+[index]
