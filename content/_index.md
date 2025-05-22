@@ -1,9 +1,7 @@
 ---
 title: "Bienvenue sur mon site"
 hero:
-  title: "Ma super homepage"
-  subtitle: "Découvrez mes services"
-  background: "images/hero.jpg"
+  title: "Transformons les lieux communs en belles histoires!"
 
 sections:
   - id: "section1"

@@ -1,10 +1,14 @@
 {{ define "main" }}
   <!-- Hero Section -->
   {{ with .Params.hero }}
-    <section class="hero" style="background-image: url('{{ .background }}')">
-      <h1>{{ .title }}</h1>
-      <p>{{ .subtitle }}</p>
-    </section>
+    <div class="yellow-box">
+      <section class=" container flex flex-column align-center py-32v">
+        <div class="w-850 max-w-full svg-container-full">
+          {{ readFile "assets/illustrations/logo-full.svg" | safeHTML }}
+        </div>
+        <h1 class="text-center">{{ .title }}</h1>
+      </section>
+    </div>
   {{ end }}
 
 
