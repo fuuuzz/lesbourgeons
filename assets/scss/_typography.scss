@@ -3,6 +3,27 @@ h1 {
   font-size: 2.5rem;
 }
 
+h2 {
+  font-family: "Boldonse";
+  font-size: 1.75rem;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: $color-yellow;
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: 0.75rem;
+  text-decoration-skip-ink: none;
+
+  &::before {
+    content: "   ";
+    white-space: pre;
+  }
+}
+
+h3 {
+  font-family: "Boldonse";
+  font-size: 1.25rem;
+}
+
 .text-center {
   text-align: center;
 }

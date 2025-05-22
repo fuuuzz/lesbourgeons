@@ -1,7 +1,7 @@
 {{ define "main" }}
   <!-- Hero Section -->
   {{ with .Params.hero }}
-    <div class="yellow-box">
+    <div class="bg-green">
       <section class=" container flex flex-column align-center py-32v">
         <div class="w-850 max-w-full svg-container-full">
           {{ readFile "assets/illustrations/logo-full.svg" | safeHTML }}
@@ -14,9 +14,24 @@
 
   <!-- Sections -->
   {{ range .Params.sections }}
-    <section id="{{ .id }}">
-      <h2>{{ .title }}</h2>
-      <div>{{ .content | markdownify }}</div>
+    <section id="{{ .id }}" class="container py-24v">
+      <div class="flex justify-center">
+        <img src="images/{{ .picto }}" alt="village" class="w-100" />
+      </div>
+      <div class="flex w-full my-16v align-center gap-16v">
+        <div class="w-half">
+          <h2>{{ .title }}</h2>
+          <p>{{ .content1 | markdownify }}</p>
+          <p>{{ .content2 | markdownify }}</p>
+        </div>
+        <div class="w-half">
+          <img
+            src="images/{{ .illustration }}"
+            alt="village"
+            class="w-full border-radius-32v"
+          />
+        </div>
+      </div>
       <!-- Rendre le contenu Markdown -->
     </section>
   {{ end }}

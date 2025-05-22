@@ -134,6 +134,10 @@ $spacing-sizes: (
     margin-top: $value;
     margin-bottom: $value;
   }
+
+  .gap-#{$size} {
+    gap: $value;
+  }
 }
 
 // Padding utilities
