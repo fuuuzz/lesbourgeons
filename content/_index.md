@@ -26,6 +26,12 @@ sections:
       - content: Les/L’épauler dans la construction du plan d’affaire et des projections financières
       - content: Coordonner la réhabilitation éventuelle du bâtiment (avec des partenaires spécialisés).
       - content: Accompagner l’ouverture et assurer un suivi d’exploitation au cours des 12 premiers mois.
+
+  - id: "porteurs"
+    title: "Porteur·ses de projet : lançons votre activité en milieu rural"
+    picto: blue-village.png
+    content1: Vous rêvez de lancer votre activité dans un environnement rural et dynamique ? Ou de lui donner un second souffle ? Que vous soyez artisan·es, commerçant·es, artistes,… il y a de la place pour vous !
+    content2: Chez Bourgeons, nous vous accompagnons à chaque étape pour transformer votre ambition en réalité
 ---
 
 Texte principal de la page d’accueil si besoin.
