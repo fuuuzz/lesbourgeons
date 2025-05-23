@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+@font-face {
+  font-family: "Boldonse";
+  src:
+    url("/fonts/Boldonse-Regular.woff2") format("woff2"),
+    url("/fonts/Boldonse-Regular.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src:
+    url("/fonts/Quicksand-Medium.woff2") format("woff2"),
+    url("/fonts/Quicksand-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-blue-500: #7398b7;
+  --color-orange-500: #dd753a;
+  --color-yellow-500: #dfca00;
+  --color-green-500: #67a562;
+  --font-boldonse: "Boldonse", sans-serif;
+  --font-sans: "Quicksand", sans-serif;
+}

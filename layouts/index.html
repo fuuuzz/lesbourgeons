@@ -1,12 +1,14 @@
 {{ define "main" }}
   <!-- Hero Section -->
   {{ with .Params.hero }}
-    <div class="bg-green">
-      <section class=" container flex flex-column align-center py-32v">
-        <div class="w-850 max-w-full svg-container-full">
-          {{ readFile "assets/illustrations/logo-full.svg" | safeHTML }}
+    <div class="bg-green-500">
+      <section class="max-w-full w-6xl mx-auto px-4 md:px-8 py-50 mb-35">
+        <div class="max-w-200 mx-auto mb-16">
+          {{ partial "illustrations/logo-full.html" (dict "class" "w-full") }}
         </div>
-        <h1 class="text-center">{{ .title }}</h1>
+        <h1 class="text-center text-4xl font-boldonse leading-[1.5]">
+          {{ .title }}
+        </h1>
       </section>
     </div>
   {{ end }}
@@ -14,25 +16,105 @@
 
   <!-- Sections -->
   {{ range .Params.sections }}
-    <section id="{{ .id }}" class="container py-24v">
-      <div class="flex justify-center">
-        <img src="images/{{ .picto }}" alt="village" class="w-100" />
-      </div>
-      <div class="flex w-full my-16v align-center gap-16v">
-        <div class="w-half">
-          <h2>{{ .title }}</h2>
-          <p>{{ .content1 | markdownify }}</p>
-          <p>{{ .content2 | markdownify }}</p>
-        </div>
-        <div class="w-half">
+    {{ if eq .id "village" }}
+      <section
+        id="{{ .id }}"
+        class="max-w-full w-6xl mx-auto pb-35 px-4 md:px-8"
+      >
+        <div class="flex justify-center">
           <img
-            src="images/{{ .illustration }}"
+            src="images/{{ .picto }}"
             alt="village"
-            class="w-full border-radius-32v"
+            class="w-[100px] mb-20"
           />
         </div>
-      </div>
-      <!-- Rendre le contenu Markdown -->
-    </section>
+        <div class="flex gap-16 items-center">
+          <div class="flex-1/2">
+            <h2
+              class="font-boldonse text-2xl leading-[2.3] mb-16 underline decoration-orange-500 decoration-8 decoration underline-offset-8"
+            >
+              {{ .title }}
+            </h2>
+            <p class="text-lg mb-8">{{ .content1 | markdownify }}</p>
+            <p class="text-lg">{{ .content2 | markdownify }}</p>
+          </div>
+          <div class="flex-1/2">
+            <img
+              src="images/{{ .illustration }}"
+              alt="village"
+              class="w-full rounded-xl"
+            />
+          </div>
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if eq .id "elus" }}
+      <section
+        id="{{ .id }}"
+        class="max-w-full w-6xl mx-auto pb-35 px-4 md:px-8"
+      >
+        <div class="flex justify-center">
+          <img src="images/{{ .picto }}" alt="trees" class="w-[100px] mb-20" />
+        </div>
+        <div class="flex gap-16 items-center mb-16">
+          <div class="flex-1/2">
+            <img
+              srcset="
+                images/village-400w.webp   400w,
+                images/village-600w.webp   600w,
+                images/village-800w.webp   800w,
+                images/village-1000w.webp 1000w,
+                images/village-1200w.webp 1200w
+              "
+              sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (min-width: 1001px) 1200px"
+              src="images/village-1200w.webp"
+              alt=""
+              width="1280"
+              height="853"
+              class="w-full rounded-xl"
+            />
+          </div>
+          <div class="flex-1/2">
+            <h2
+              class="font-boldonse text-2xl leading-[2.3] mb-16 underline decoration-blue-500 decoration-8 decoration underline-offset-8"
+            >
+              {{ .title }}
+            </h2>
+            <p class="text-lg mb-8">{{ .content1 | markdownify }}</p>
+            <p class="text-lg">{{ .content2 | markdownify }}</p>
+          </div>
+        </div>
+        <div class="max-w-120 mx-auto my-24">
+          <p class="text-md font-boldonse text-center mb-4">
+            <span class="text-3xl leading-2 font-boldonse">“&nbsp; </span>
+            {{ .statTitle | markdownify }}
+            <span
+              class="text-3xl leading-2 font-boldonse inline-block rotate-x-180"
+              >&nbsp; “
+            </span>
+          </p>
+          <p class="text-sm text-center">
+            {{ .statDescripiton | markdownify }}
+          </p>
+        </div>
+        <div>
+          <h3 class="font-boldonse text-lg leading-[2.3] mb-8">
+            {{ .subtitle }}
+          </h3>
+        </div>
+        <div class="grid grid-cols-3 gap-8">
+          {{ range $index, $element := .keys }}
+            <div class="bg-orange-200 p-8 rounded-xl shadow-xl">
+              <p class="text-3xl font-boldonse mb-6">
+                <i>{{ add (int $index) 1 }}.</i>
+              </p>
+              <p>{{ $element.content }}</p>
+            </div>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
   {{ end }}
 {{ end }}
