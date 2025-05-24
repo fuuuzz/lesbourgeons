@@ -1,4 +1,4 @@
-baseURL = 'https://fuuuzz.github.io/lesbourgeons'
+baseURL = 'https://lesbourgeons.org/lesbourgeons'
 languageCode = 'fr-fr'
 title = 'Les bourgeons'
 [taxonomies]
