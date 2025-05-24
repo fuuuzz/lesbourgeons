@@ -1,5 +1,5 @@
 ---
-title: "Bienvenue sur mon site"
+title: "Les bourgeons"
 hero:
   title: "Transformons les lieux communs en belles histoires"
 
