@@ -4,6 +4,11 @@ title = 'Les bourgeons'
 [taxonomies]
 [index]
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [build]
   [build.buildStats]
     enable = true

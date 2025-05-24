@@ -28,7 +28,7 @@
             class="w-[100px] mb-20"
           />
         </div>
-        <div class="flex gap-16 items-center">
+        <div class="flex gap-16 items-stretch">
           <div class="flex-1/2">
             <h2
               class="font-boldonse text-2xl leading-[2.3] mb-16 underline decoration-orange-500 decoration-8 decoration underline-offset-8"
@@ -42,7 +42,7 @@
             <img
               src="images/{{ .illustration }}"
               alt="village"
-              class="w-full rounded-xl"
+              class="w-full h-full object-cover rounded-xl"
             />
           </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="flex justify-center">
           <img src="images/{{ .picto }}" alt="trees" class="w-[100px] mb-20" />
         </div>
-        <div class="flex gap-16 items-center mb-16">
+        <div class="flex gap-16 items-stretch mb-16">
           <div class="flex-1/2">
             <img
               srcset="
@@ -72,7 +72,7 @@
               alt=""
               width="1280"
               height="853"
-              class="w-full rounded-xl"
+              class="w-full h-full object-cover rounded-xl"
             />
           </div>
           <div class="flex-1/2">
@@ -98,15 +98,13 @@
             {{ .statDescripiton | markdownify }}
           </p>
         </div>
-        <div>
-          <h3 class="font-boldonse text-lg leading-[2.3] mb-8">
-            {{ .subtitle }}
-          </h3>
-        </div>
+        <h3 class="font-boldonse text-lg leading-[2.3] mb-8 w-2/3">
+          {{ .subtitle }}
+        </h3>
         <div class="grid grid-cols-3 gap-8">
           {{ range $index, $element := .keys }}
             <div class="bg-orange-200 p-8 rounded-xl shadow-xl">
-              <p class="text-3xl font-boldonse mb-6">
+              <p class="text-2xl font-boldonse mb-6">
                 <i>{{ add (int $index) 1 }}.</i>
               </p>
               <p>{{ $element.content }}</p>
@@ -125,15 +123,14 @@
           <img src="images/{{ .picto }}" alt="trees" class="w-[100px] mb-20" />
         </div>
 
-        <div class="flex gap-16 items-center mb-16">
+        <div class="flex gap-16 items-stretch mb-24">
           <div class="flex-1/2">
             <h2
               class="font-boldonse text-2xl leading-[2.3] mb-16 underline decoration-yellow-500 decoration-8 decoration underline-offset-8"
             >
               {{ .title }}
             </h2>
-            <p class="text-lg mb-8">{{ .content1 | markdownify }}</p>
-            <p class="text-lg">{{ .content2 | markdownify }}</p>
+            <p class="text-lg mb-8">{{ .content | markdownify }}</p>
           </div>
           <div class="flex-1/2">
             <img
@@ -149,12 +146,167 @@
               alt=""
               width="1280"
               height="853"
-              class="w-full rounded-xl"
+              class="w-full h-full object-cover rounded-xl"
             />
+          </div>
+        </div>
+        <h3 class="font-boldonse text-lg leading-[2.3] mb-8 w-2/3">
+          {{ .subtitle }}
+        </h3>
+
+        <div class="grid grid-cols-3 gap-8">
+          {{ range $index, $element := .keys }}
+            <div class="bg-yellow-200 p-8 rounded-xl shadow-xl">
+              {{ range $element.content }}
+                <p class="text-2xl font-boldonse mb-6">
+                  <i>{{ .title }}</i>
+                </p>
+                <p>{{ .description }}</p>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if eq .id "equipe" }}
+      <section
+        id="{{ .id }}"
+        class="max-w-full w-6xl mx-auto pb-35 px-4 md:px-8"
+      >
+        <div class="flex justify-center">
+          <img src="images/{{ .picto }}" alt="trees" class="w-[100px] mb-20" />
+        </div>
+
+        <div class="p-16 bg-blue-100 rounded-xl shadow-xl">
+          <h2
+            class="font-boldonse text-2xl leading-[2.3] mb-16 underline decoration-orange-500 decoration-8 decoration underline-offset-8 text-center"
+          >
+            {{ .title }}
+          </h2>
+          <div class="flex gap-16 items-stretch">
+            <div class="flex-1/2">
+              <img
+                src="images/{{ .illustration }}"
+                alt="village"
+                class="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+            <div class="flex-1/2">
+              <p class="text-lg mb-8">
+                {{ .content1 | markdownify }}
+                {{ range $index, $element := .people }}
+                  {{ if eq $index 1 }}
+                    ,
+                  {{ end }}
+                  {{ if eq $index 2 }}
+                    et
+                  {{ end }}
+                  <a
+                    href="{{ $element.link }}"
+                    class="text-orange-600 underline decoration-orange-600"
+                  >
+                    {{ $element.name }}
+                  </a>
+                {{ end }}
+              </p>
+              <p class="text-lg mb-8">{{ .content2 | markdownify }}</p>
+              <p class="text-lg">{{ .content3 | markdownify }}</p>
+            </div>
+          </div>
+          <div>
+            <h4
+              class="font-boldonse text-lg leading-[2.3] mt-24 mb-8 text-center"
+            >
+              {{ .valeursTitle }}
+            </h4>
+            <div class="grid grid-cols-4 gap-2">
+              {{ range $index, $element := .valeurs }}
+                {{ $color := cond (eq (mod $index 4) 0) "yellow-400" (cond (eq (mod $index 4) 1) "blue-600" (cond (eq (mod $index 4) 2) "green-600" "orange-600")) }}
+                <div class="px-4 py-2 flex items-center justify-center">
+                  <p
+                    class="text-xs leading-[2.5] font-boldonse text-center underline decoration-{{ $color }} decoration-4 decoration underline-offset-6"
+                  >
+                    <i class="text-lg text-{{ $color }}"
+                      >{{ add (int $index) 1 }}.&nbsp;</i
+                    >
+                    {{ $element.content }}
+                  </p>
+                </div>
+              {{ end }}
+            </div>
           </div>
         </div>
       </section>
     {{ end }}
 
+    {{ if eq .id "soutien" }}
+      <section
+        id="{{ .id }}"
+        class="max-w-full w-6xl mx-auto pb-35 px-4 md:px-8"
+      >
+        <div class="flex justify-center">
+          <img src="images/{{ .picto }}" alt="trees" class="w-[100px] mb-20" />
+        </div>
+
+        <h2
+          class="font-boldonse text-2xl text-center leading-[2.3] mb-16 underline decoration-green-500 decoration-8 decoration underline-offset-8"
+        >
+          {{ .title }}
+        </h2>
+        <div class="flex gap-16 justify-center items-center">
+          {{ range $index, $element := .soutiens }}
+            <img
+              src="images/{{ $element.image }}"
+              alt="{{ $element.alt }}"
+              class="w-80"
+            />
+          {{ end }}
+        </div>
+        <p class="mt-16 text-lg text-center">{{ .content | markdownify }}</p>
+      </section>
+    {{ end }}
+
+    {{ if eq .id "distinctions" }}
+      <section
+        id="{{ .id }}"
+        class="max-w-full w-6xl mx-auto pb-35 px-4 md:px-8"
+      >
+        <h2
+          class="font-boldonse text-2xl text-center leading-[2.3] mb-16 underline decoration-yellow-500 decoration-8 decoration underline-offset-8"
+        >
+          {{ .title }}
+        </h2>
+        <figure class="max-w-160 w-full mx-auto">
+          <img
+            src="images/{{ .illustration }}"
+            alt="{{ .caption }}"
+            class="w-full h-full object-cover rounded-xl"
+          />
+          <figcaption class="text-sm text-center mt-4">
+            <i>{{ .caption }}</i>
+          </figcaption>
+        </figure>
+      </section>
+    {{ end }}
+
+    {{ if eq .id "contact" }}
+      <section
+        id="{{ .id }}"
+        class="max-w-full w-6xl mx-auto pb-35 px-4 md:px-8"
+      >
+        <h2
+          class="font-boldonse text-2xl text-center leading-[2.3] mb-16 underline decoration-green-500 decoration-8 decoration underline-offset-8"
+        >
+          {{ .title }}
+        </h2>
+        <p class="text-center">{{ .content | markdownify }}</p>
+        <div class="flex justify-center mt-16">
+          <button class="bg-green-500 px-4 py-4 px-8 rounded-md">
+            {{ .cta }}
+          </button>
+        </div>
+      </section>
+    {{ end }}
   {{ end }}
 {{ end }}
