@@ -26,3 +26,7 @@ title = 'Les bourgeons'
     disableWatch = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
