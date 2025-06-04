@@ -3,7 +3,7 @@
 <title>{{ .Title }}</title>
 
 {{ $styles := resources.Get "scss/main.scss" | toCSS | minify }}
-{{/* <link rel="stylesheet" href="{{ $styles.Permalink }}" /> */}}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" />
 {{ partialCached "css.html" . }}
 
 <link
