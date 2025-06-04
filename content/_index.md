@@ -75,11 +75,13 @@ sections:
     content: "Vous êtes touchés par les sujets de ruralité et souhaitez soutenir un jeune projet plein de sens et d’avenir : parlons-en !"
 
   - id: distinctions
+    picto: blue-house.png
     title: Distinctions
     illustration: trophee.webp
     caption: Prix Coup de cœur du public au Trophée de l'entrepreneur.e responsable organisé par Egensia (Janvier 2025)
 
   - id: contact
+    picto: sun.png
     title: Rejoignez le mouvement Bourgeons !
     content: Que vous soyez élu·e ou porteur·se de projet, nous sommes là pour vous accompagner dans votre démarche. Ensemble, redonnons vie aux territoires ruraux !
     cta: Contactez-nous
