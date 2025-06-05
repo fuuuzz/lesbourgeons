@@ -26,6 +26,9 @@ sections:
       - content: Les/L’épauler dans la construction du plan d’affaire et des projections financières
       - content: Coordonner la réhabilitation éventuelle du bâtiment (avec des partenaires spécialisés).
       - content: Accompagner l’ouverture et assurer un suivi d’exploitation au cours des 12 premiers mois.
+    cta:
+      label: Contactez-nous
+      href: "mailto:bonjour@lesbourgeons.org"
 
   - id: "porteurs"
     title: "Porteur·ses de projet : lançons votre activité en milieu rural"
@@ -42,6 +45,9 @@ sections:
       - content:
           - title: Accompagnement
           - description: Nous vous accompagnons dans l’installation et au cours de la première année d’activité. Vous rejoignez ensuite notre communauté d’entrepreneur·e·s ruraux.
+    cta:
+      label: Contactez-nous
+      href: https://docs.google.com/forms/d/e/1FAIpQLSewjnEl3DqDO6cAAyROer0o-aUoV2_sGNCzQIQXj6MgYgQD7Q/viewform
 
   - id: equipe
     title: Une équipe énergique et engagée pour transformer les territoires ruraux
@@ -84,7 +90,9 @@ sections:
     picto: sun.png
     title: Rejoignez le mouvement Bourgeons !
     content: Que vous soyez élu·e ou porteur·se de projet, nous sommes là pour vous accompagner dans votre démarche. Ensemble, redonnons vie aux territoires ruraux !
-    cta: Contactez-nous
+    cta:
+      label: Contactez-nous
+      href: "mailto:bonjour@lesbourgeons.org"
 ---
 
 Texte principal de la page d’accueil si besoin.
